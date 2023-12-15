@@ -2,17 +2,20 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 {
     'name' : 'Hospital Management Systems',
-    'version' : '1.0',
+    'version' : '16.0.0.0',
     'summary': 'Simplify your ',
     'sequence': 1,
     'description': "Hospital Management Systems",
     'category': 'Hospital',
     'website': 'https://shorturl.at/juBR0',
-    'depends' : [],
+    'depends' : ['mail'],
     'data': [
         "security/ir.model.access.csv",
+        "data/sequence.xml",
         "views/menu.xml",
-        "views/patients.xml",
+        "views/patient_view.xml",
+        "views/appointment_view.xml",
+        
     ],
         
     'installable': True,

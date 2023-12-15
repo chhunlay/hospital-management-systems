@@ -3,7 +3,7 @@
 
     <menuitem id="menu_hospital_root" 
         name="Hospital" 
-        web_icon="hospital_management,static/description/icon.png"
+        web_icon="hospital-management-systems,static/description/icon.png"
         sequence="0"/>
     
     <menuitem id="menu_patient_master" 
