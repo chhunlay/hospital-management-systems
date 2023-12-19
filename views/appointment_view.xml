@@ -8,15 +8,14 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <div class="oe_title">
+                    <!-- <div class="oe_title">
                         <h1>
                             <field name="patient_id"/>
                         </h1>
-                    </div>
+                    </div> -->
                     <group>
                         <group>
-                            <!-- <field name="patient"/>
-                            <field name="age"/> -->
+                            <field name="patient_id"/>
                         </group>
                         <group>
                             <!-- <field name="gender"/> -->
@@ -69,7 +68,7 @@
 
     <!-- window action -->
     <record id="action_hospital_appointment" model="ir.actions.act_window">
-        <field name="name">Appointment</field>
+        <field name="name">Appointments</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hospital.appointment</field>
         <field name="view_mode">tree,form</field>

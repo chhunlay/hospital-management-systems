@@ -4,16 +4,17 @@ class HospitalPatient(models.Model):
     _name = "hospital.patient"
     _description = "Hospital Management Systems"
     _inherit = ["mail.thread", "mail.activity.mixin"]
-
+ 
+    patient_id = fields.Many2one(string="Patient", required=True)
+    age = fields.Integer(string="Age", tracking=True, required=True)
+    gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender")
+    phone = fields.Char(string='Phone')
+    # reference
     name = fields.Char(string="Reference",
         readonly=True, 
         copy=False, 
         tracking=True,
         default=lambda self: _('New'))
-    
-    patient = fields.Char(string="Patient Name", tracking=True, required=True)
-    age = fields.Integer(string="Age", tracking=True, required=True)
-    gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender")
 
     # sequence 
     @api.model  
