@@ -5,10 +5,12 @@ class HospitalPatient(models.Model):
     _description = "Hospital Management Systems"
     _inherit = ["mail.thread", "mail.activity.mixin"]
  
-    patient_id = fields.Many2one(string="Patient", required=True)
+    patient_id = fields.Char(string="Patient", required=True, tracking=True)
     age = fields.Integer(string="Age", tracking=True, required=True)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender")
     phone = fields.Char(string='Phone')
+    dob = fields.Date(string="Date of Birth", required=True)
+    img = fields.Image(string="Image", help="Select patient profile.")
     # reference
     name = fields.Char(string="Reference",
         readonly=True, 
