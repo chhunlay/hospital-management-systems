@@ -6,7 +6,7 @@ class HospitalPatient(models.Model):
     _inherit = ["mail.thread", "mail.activity.mixin"]
  
     patient_id = fields.Char(string="Patient", required=True, tracking=True)
-    age = fields.Integer(string="Age", tracking=True, required=True)
+    age = fields.Integer(string="Age", tracking=True, required=True, compute="_compute_age")
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender")
     phone = fields.Char(string='Phone')
     dob = fields.Date(string="Date of Birth", required=True)
@@ -31,5 +31,16 @@ class HospitalPatient(models.Model):
         for request in self:
             result.append((request.id, "%s" % (request.name)))
         return result
+    
+    @api.depends('dob')
+    def _compute_age(self):
+        for patient in self:
+            if patient.dob:
+                today = fields.Date.today()
+                dob = fields.Date.from_string(patient.dob)
+                age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
+                patient.age = age
+            else:
+                patient.age = 0
 
 
