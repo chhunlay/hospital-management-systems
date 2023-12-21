@@ -7,7 +7,10 @@ class HospitalPatient(models.Model):
  
     patient_id = fields.Char(string="Patient", required=True, tracking=True)
     age = fields.Integer(string="Age", tracking=True, required=True, compute="_compute_age")
-    gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender")
+    gender = fields.Selection(
+        [('male', 'Male'), 
+         ('female', 'Female')], 
+         string="Gender")
     phone = fields.Char(string='Phone')
     dob = fields.Date(string="Date of Birth", required=True)
     img = fields.Image(string="Image", help="Select patient profile.")
