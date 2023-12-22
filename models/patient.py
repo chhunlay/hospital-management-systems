@@ -5,7 +5,11 @@ class HospitalPatient(models.Model):
     _description = "Hospital Management Systems"
     _inherit = ["mail.thread", "mail.activity.mixin"]
  
-    patient_id = fields.Char(string="Patient", required=True, tracking=True)
+    patient_id = fields.Many2one(
+        comodel_name="res.partner", 
+        string="Patient", 
+        required=True, 
+        tracking=True)
     age = fields.Integer(string="Age", tracking=True, required=True, compute="_compute_age")
     gender = fields.Selection(
         [('male', 'Male'), 

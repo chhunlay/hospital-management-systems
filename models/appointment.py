@@ -6,5 +6,5 @@ class HospitalAppointment(models.Model):
     _inherit = ["mail.thread", "mail.activity.mixin"]
 
     patient_id = fields.Many2one(
-        comodel_name="hospital.patient", 
+        comodel_name="res.partner",
         string="Patient")
