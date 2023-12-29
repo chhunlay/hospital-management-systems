@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <odoo noupdate="1">
-    <record id="hospital_patient_sequence" model="ir.sequence">
+    <record id="hospital_appointment_sequence" model="ir.sequence">
         <field name="name">Hospital Appointment</field>
-        <field name="code">hospihospital.appointment</field>
+        <field name="code">hospital.appointment</field>
         <field name="prefix">AP</field>
         <field name="padding">5</field>
     </record>
