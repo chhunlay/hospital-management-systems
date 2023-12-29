@@ -17,24 +17,66 @@
                         <button string="Cancel" type="object" name="action_cancel" states="draft,confirmed,in_progress" class="oe_highlight"/>
                     </header>
                     <sheet>
-                        <div class="oe_title">
-                            <h1>
-                                <field name="name" readonly="1"/>
-                            </h1>
-                        </div>              
                         <group>
-                            <group>
-                                <field name="patient_id" required="1"/>
-                                <field name="doctor_id" required="1"/>
-                                <field name="appointment_date" required="1"/>
-                                <field name="appointment_duration"/>
-                            </group>
-                            <group>
-                                <field name="symptoms" widget="text"/>
-                                <field name="diagnosis" widget="text"/>
-                                <field name="prescription" widget="text"/>
-                            </group>
+                            <field name="patient_id" required="1"/>
+                            <field name="doctor_id" required="1"/>
+                            <field name="appointment_date" required="1"/>
+                            <field name="appointment_duration"/>
+                            <field name="age"/>
+                            <field name="gender"/>                         
                         </group>
+                        <notebook>
+                            <!-- General Information -->
+                            <page string="General Information">
+                                <group>
+                                    <group>                                    
+                                        <field name="contact_number"/>
+                                        <field name="address"/>
+                                        <field name="medical_history"/>
+                                    </group>
+                                    <group>
+                                        <field name="specialization"/>
+                                        <field name="qualification"/>
+                                        <field name="doctor_contact_number"/>
+                                        <field name="doctor_address"/>
+                                        <field name="insurance_provider"/>
+                                        <field name="policy_number"/>
+                                        <field name="insurance_validity"/>
+                                    </group>
+                                </group>
+                            </page>
+
+                            <!-- Billing Information -->
+                            <page string="Billing Information">
+                                <group>
+                                    <field name="total_cost"/>
+                                    <field name="payment_status"/>
+                                    <field name="payment_date"/>
+                                </group>
+                            </page>
+
+                            <!-- Additional Details -->
+                            <page string="Additional Details">
+                                <group>
+                                    <field name="appointment_notes" widget="text"/>
+                                    <field name="reminder_date"/>
+                                    <field name="bed_allocated"/>
+                                    <field name="bed_number"/>
+                                    <field name="pharmacy_order_ids" widget="many2many_tags"/>
+                                    <!-- Add more fields as needed -->
+                                </group>
+                            </page>
+
+                            <!-- Symptoms, Diagnosis, Prescription, Lab Test Requests -->
+                            <page string="Medical Details">
+                                <group>
+                                    <field name="symptoms" widget="text"/>
+                                    <field name="diagnosis" widget="text"/>
+                                    <field name="prescription" widget="text"/>
+                                    <field name="lab_test_requests" widget="one2many_list"/>
+                                </group>
+                            </page>
+                        </notebook>
                     </sheet>
                     <div class="oe_chatter">                
                         <field name="activity_ids"/>
@@ -95,4 +137,3 @@
             sequence="1"/> 
     </data>
 </odoo>
-
